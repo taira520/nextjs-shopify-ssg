@@ -14,15 +14,12 @@ on:
 
 jobs:
   shopify-deploy:
-    if: github.event.client_payload
     name: shopify-deploy
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.client_payload.ref }}
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
