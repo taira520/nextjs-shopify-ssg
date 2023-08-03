@@ -1,0 +1,48 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "next",
+    "build": "next build && next export",
+    "postbuild": "next-sitemap",
+    "start": "next start",
+    "type-check": "tsc"
+  },
+  "dependencies": {
+    "@splidejs/react-splide": "^0.7.12",
+    "axios": "^1.3.2",
+    "date-fns": "^2.30.0",
+    "next": "latest",
+    "node-fetch": "^3.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-gtm-module": "^2.0.11",
+    "react-hook-form": "^7.43.1",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
+    "wpapi": "^1.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^12.20.55",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "next-sitemap": "^3.1.52",
+    "react-scroll": "^1.8.9",
+    "sanitize.css": "^13.0.0",
+    "sass": "^1.57.1",
+    "typescript": "^4.8.3"
+  },
+  "name": "brandsite",
+  "description": "This is a really simple project that shows the usage of Next.js with TypeScript.",
+  "version": "1.0.0",
+  "main": "next-sitemap.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hidacollection-company/hidacolle-brandsite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hidacollection-company/hidacolle-brandsite/issues"
+  },
+  "homepage": "https://github.com/hidacollection-company/hidacolle-brandsite#readme"
+}

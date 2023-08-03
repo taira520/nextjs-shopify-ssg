@@ -1,0 +1,57 @@
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# htmlファイル内のPHP実行
+# Xserver
+AddHandler fcgid-script .htm .html
+
+# お知らせ詳細ページへの要求URL変更
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^hidacolle/(.*)$ furniture-that-thinks [L]
+RewriteRule ^together/(.*)$ custom-furniture [L]
+RewriteRule ^furniture/(.*)$ custom-furniture [L]
+RewriteRule ^faq/(.*)$ https://www.hidacolle.com/ [L]
+RewriteRule ^remote/(.*)$ contact [L]
+RewriteRule ^scene/(.*)$ custom-furniture [L]
+RewriteRule ^maintenance/(.*)$ ichimaiita/maintenance [L]
+RewriteRule ^hidatakayama/(.*)$ https://www.hidacolle.com/ [L]
+RewriteRule ^staff/(.*)$ https://www.hidacolle.com/ [L]
+RewriteRule ^trade/(.*)$ https://www.hidacolle.com/ [L]
+RewriteRule ^siteinfo/(.*)$ https://www.hidacolle.com/ [L]
+RewriteRule ^shop/(.*)$ flagshipshop [L]
+RewriteRule ^flow/(.*)$ contact [L]
+RewriteRule ^scene/(.*)$ custom-furniture [L]
+
+RewriteRule ^case/(index|works|maintenance)\.html$ custom-furniture [L]
+
+# 各記事
+RewriteRule ^case/works-details_no([a-z0-9/-]+).html$ custom-furniture [L]
+RewriteRule ^case/maintenance-details_no([a-z0-9/-]+).html$ ichimaiita/maintenance [L]
+RewriteRule ^case/maintenance-details_no([a-z0-9/-]+).html$ ichimaiita/maintenance [L]
+
+# Site mapの関係がある
+RewriteRule ^sitemap$ https://www.hidacolle.com/ [L]
+RewriteRule ^sitemap/index.html$ https://www.hidacolle.com/ [L]
+
+RewriteRule ^furniture/(ichimaiita|table-make)\.html$ ichimaiita [L]
+RewriteRule ^furniture/accessories.html$ original-products [L]
+
+RewriteRule ^furniture/(bed|chair|craft|desk|shelf|sofa|stool|storage|table)\.html$ custom-furniture [L]
+
+# 今後ヒダコレノートへ遷移
+RewriteRule ^news.*$ https://www.hidacolle.com/ [L]
+RewriteRule ^blog.*$ https://www.hidacolle.com/ [L]
+
+# 下記はサラニさんが書いてくれていたリダイレクト。
+# 念の為残しておきます。
+#RewriteRule ^case/works-details_no([0-9]+).html$ case/details.html?id=$1 [L]
+#RewriteRule ^case/maintenance-details_no([0-9]+).html$ case/details.html?id=$1 [L]
+#RewriteRule ^furniture/type-(.*).html$		            furniture/list.html?type=$1 [L]
+#RewriteRule ^furniture/(.*)_no([0-9]+).html$			furniture/details.html?type=$1&id=$2 [L]
+
+#RewriteRule ^blog/contents_no([0-9]+).html$             blog/contents.html?id=$1 [L]
+
+#RewriteRule ^wp-content/uploads/(.*)$ https://www.hidacolle.com/hcwp/wp-content/uploads/$1 [R=301,L]

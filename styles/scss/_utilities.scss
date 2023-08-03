@@ -1,0 +1,369 @@
+// Next level => Componetns
+
+
+@include mq(s) {
+    .box-heading{
+        margin: 40px auto 0;
+        width: $mainWidth_sp;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column-reverse;
+        .inner-heading{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            p.catch{
+                margin: 30px 0 0;
+                @include fts(ja, title);
+                line-height: 100%;
+            }
+            .caption{
+                margin: 10px 0 0;
+                @include fts(ja, small);
+                .go_to_online{
+                    @include fts(ja, small);
+                    text-decoration: underline;
+                    &.target_blank{
+                        &::after {
+                            content: url("/target-brank.svg");
+                            margin: 0 0 0 15px;
+                            width: 18px;
+                            height: 18px;
+                            position: relative;
+                            top: 5px;
+                            left: 0;
+                            transition: all 0.2s ease;
+                        }
+                    }
+                    &:hover{
+                        &.target_blank{
+                            &::after {
+                                position: relative;
+                                top: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            h1{
+                margin: 10px 0 0;
+                @include fts(ja, lead);
+            }
+        }
+        .visual-heading{
+            width: 100%;
+            img{
+                width: 100%;
+                height: auto;
+                border-radius: $baseRadius_sp;
+            }
+        }
+    }
+    .add_corner{
+        position: relative;
+        &::before,&::after{
+            content: '';
+            background-image: url(/focus_mark-gray.svg);
+            background-size: contain;
+            vertical-align: middle;
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+            position: absolute;
+            transition: all 0.2s ease;
+        }
+        &::before{
+            top: 10px;
+            left: 10px;
+        }
+        &::after{
+            transform: rotate(-180deg);
+            bottom: 10px;
+            right: 10px;
+        }
+        &:hover{
+            &::before{
+                top: 15px;
+                left: 15px;
+            }
+            &::after{
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+    }
+    .button_to_form{
+        width: 100%;
+        height: 50px;
+        color: c(nc, w1);
+        @include fts(ja, text);
+        background-color: c(yellow, m);
+        border-radius: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .button_green{
+        width: 100%;
+        height: 50px;
+        color: c(nc, w1);
+        @include fts(ja, text);
+        background-color: c(green, m);
+        border-radius: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    a.button{
+        padding: 0 30px;
+        width: 100%;
+        height: 80px;
+        @include fts(ja, text);
+        background-color: c(nc, w1);
+        border: 3px solid c(nc, b1);
+        border-radius: 100px;
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: center;
+        position: relative;
+        &.instagram{
+            &::before {
+                content: url("/logo-instagram.png");
+                width: 29px;
+                height: 28px;
+            }
+        }
+        &.facebook{
+            &::before {
+                content: url("/logo-facebook.png");
+                width: 27px;
+                height: 28px;
+            }
+        }
+        &:hover{
+            // border: 3px solid c(yellow, m);
+            &.target_this_site{
+                &::after {
+                    position: relative;
+                    left: 5px;
+                }
+            }
+            &.target_blank{
+                &::after {
+                    position: relative;
+                    top: -2px;
+                }
+            }
+        }
+        &.target_this_site{
+            &::after {
+                content: url("/target-this_site.svg");
+                margin: 0 0 0 15px;
+                width: 27px;
+                height: 28px;
+                position: relative;
+                top: 0;
+                left: 0;
+                transition: all 0.2s ease;
+            }
+        }
+        &.target_blank{
+            &::after {
+                content: url("/target-brank.svg");
+                margin: 0 0 0 15px;
+                width: 18px;
+                height: 18px;
+                position: relative;
+                top: 3px;
+                left: 0;
+                transition: all 0.2s ease;
+            }
+        }
+    }
+}
+
+@include mq(m) {
+    .box-heading{
+        margin: 40px auto 0;
+        width: $wl;
+        height: 350px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        .inner-heading{
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            p.catch{
+                @include fts(en, heading);
+            }
+            .caption{
+                margin: 10px 0 0;
+                @include fts(ja, bold);
+                .go_to_online{
+                    @include fts(ja, text);
+                    text-decoration: underline;
+                    &.target_blank{
+                        &::after {
+                            content: url("/target-brank.svg");
+                            margin: 0 0 0 15px;
+                            width: 18px;
+                            height: 18px;
+                            position: relative;
+                            top: 5px;
+                            left: 0;
+                            transition: all 0.2s ease;
+                        }
+                    }
+                    &:hover{
+                        &.target_blank{
+                            &::after {
+                                position: relative;
+                                top: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            h1{
+                margin: 10px 0 0 -3px;
+                @include fts(ja, lead);
+            }
+        }
+        .visual-heading{
+            width: 410px;
+            img{
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+            }
+        }
+    }
+    .add_corner{
+        position: relative;
+        &::before,&::after{
+            content: '';
+            background-image: url(/focus_mark-gray.svg);
+            background-size: contain;
+            vertical-align: middle;
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+            position: absolute;
+            transition: all 0.2s ease;
+        }
+        &::before{
+            top: 10px;
+            left: 10px;
+        }
+        &::after{
+            transform: rotate(-180deg);
+            bottom: 10px;
+            right: 10px;
+        }
+        &:hover{
+            &::before{
+                top: 15px;
+                left: 15px;
+            }
+            &::after{
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+    }
+    .button_to_form{
+        width: 100%;
+        height: 50px;
+        color: c(nc, w1);
+        @include fts(ja, text);
+        background-color: c(yellow, m);
+        border-radius: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .button_green{
+        width: 100%;
+        height: 50px;
+        color: c(nc, w1);
+        @include fts(ja, text);
+        background-color: c(green, m);
+        border-radius: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    a.button{
+        padding: 0 35px;
+        width: 100%;
+        height: 80px;
+        @include fts(ja, text);
+        background-color: c(nc, w1);
+        border: 3px solid c(nc, b1);
+        border-radius: 100px;
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: center;
+        position: relative;
+        &.instagram{
+            &::before {
+                content: url("/logo-instagram.png");
+                width: 29px;
+                height: 28px;
+            }
+        }
+        &.facebook{
+            &::before {
+                content: url("/logo-facebook.png");
+                width: 27px;
+                height: 28px;
+            }
+        }
+        &:hover{
+            // border: 3px solid c(yellow, m);
+            &.target_this_site{
+                &::after {
+                    position: relative;
+                    left: 5px;
+                }
+            }
+            &.target_blank{
+                &::after {
+                    position: relative;
+                    top: -2px;
+                }
+            }
+        }
+        &.target_this_site{
+            &::after {
+                content: url("/target-this_site.svg");
+                margin: 0 0 0 15px;
+                width: 27px;
+                height: 28px;
+                position: relative;
+                top: 0;
+                left: 0;
+                transition: all 0.2s ease;
+            }
+        }
+        &.target_blank{
+            &::after {
+                content: url("/target-brank.svg");
+                margin: 0 0 0 15px;
+                width: 18px;
+                height: 18px;
+                position: relative;
+                top: 3px;
+                left: 0;
+                transition: all 0.2s ease;
+            }
+        }
+    }
+}

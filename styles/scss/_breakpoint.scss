@@ -1,0 +1,13 @@
+$breakpoints: (
+    "s": "screen and (max-width: 599px)",
+    "m": "screen and (min-width: 600px)",
+) !default;
+
+// @media screen and (max-width : 599px) {
+// }
+
+// @media screen and (min-width: 600px) {
+// }
+
+// SassにおけるMedia Queryのベストプラクティス
+// https://zenn.dev/web_tips/articles/095d7419507ca9

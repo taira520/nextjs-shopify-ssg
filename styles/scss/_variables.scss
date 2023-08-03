@@ -1,0 +1,52 @@
+// width => Long / Middle / Short
+$wl: 1180px;
+$wm: 1000px;
+$ws: 660px;
+$wxs: 490px;
+$wxxs: 320px;
+
+// ================================
+// Color
+// ================================
+@function c($color, $brightness) {
+    @return map-get($c, $color, $brightness);
+}
+
+$c: (
+    green :(
+        m :(#009270),
+        u1 :(#007856),
+        u2 :(#005E3C),
+        d1 :(#1AAC8A),
+        d2 :(#34C6A4),
+    ),
+    yellow :(
+        m :(#97A547),
+        u1 :(#7D8B2D),
+        u2 :(#637113),
+        d1 :(#B1BF61),
+        d2 :(#CBD97B),
+    ),
+    red :(
+        m :(#920022),
+        u1 :(#780008),
+        u2 :(#5E0000),
+        d1 :(#AC1A3C),
+        d2 :(#C63456),
+    ),
+    pink :(
+        m :(#FF6D8F),
+        u1 :(#E55375),
+        u2 :(#CB395B),
+        d1 :(#FF87A9),
+        d2 :(#FFA1C3),
+    ),
+    // non-colored
+    nc :(
+        b1 :(#2D2D2D),
+        b2 :(#3C3C3C),
+        g1 :(#E1E1E1),
+        g2 :(#f1f1f1),
+        w1 :(#FFFFFF),
+    ),
+) !default;

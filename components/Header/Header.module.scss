@@ -1,0 +1,286 @@
+@import "/styles/scss/_variables";
+@import "/styles/scss/_mixin";
+@import "/styles/scss/_utilities";
+
+
+@include mq(s) {
+  .header{
+    width: 100%;
+    height: 65px;
+    background-color: c(nc, w1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    .inner_header{
+      margin: 0 auto;
+      width: $mainWidth_sp;
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      .box_logo{
+        width: 50%;
+        img{
+          width: 100%;
+          height: auto;
+        }
+      }
+      .box_nav{
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0 20px;
+        .box_contact{
+          display: none;
+        }
+        .box_nav_button{
+        }
+        .pc_navbar_button{
+          padding: 0 25px;
+          width: 100%;
+          height: 45px;
+          @include fts(ja, text);
+          line-height: 100%;
+          background-color: c(nc, w1);
+          border: 2px solid c(nc, b1);
+          border-radius: 50px;
+          box-sizing: border-box;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+  
+  .pc_header_menu{
+    padding: 0 0 65px;
+    width: 100%;
+    height: calc(100vh - 65px);
+    background-color: c(nc, g2);
+    box-sizing: border-box;
+    overflow-y: auto;
+    position: fixed;
+    top: 65px;
+    left: 0;
+    z-index: 9998;
+    transition: all 0.2s ease;
+    opacity: 1;
+    &.open{
+      opacity: 1;
+    }
+    &.close{
+      display: none;
+      opacity: 0;
+    }
+    .header{
+      background-color: c(nc, g2);
+    }
+    .box__nav{
+      padding: 50px 0 0;
+      box-sizing: border-box;
+      display: block;
+      .layout__nav{
+        margin: 0 auto;
+        width: $mainWidth_sp;
+        .block__nav{
+          margin: 0 0 30px;
+          display: flex;
+          flex-direction: column;
+          gap: 30px 0;
+          .block__online_challnege{
+          }
+          a{
+            padding: 0 0 0 15px;
+            width: 100%;
+            @include fts(ja, title);
+            line-height: 125%;
+            border-left: 5px solid c(yellow, m);
+            box-sizing: border-box;
+            display: block;
+            span{
+              margin: 5px 0 0;
+              @include fts(ja, minimum);
+              line-height: 100%;
+              display: block;
+            }
+          }
+        }
+        .block__online_challnege{
+          margin: 20px 0 60px;
+        }
+        .heading__online_challnege{
+          position: relative;
+          span{
+            padding: 2px 15px 0 0;
+            @include fts(ja, title);
+            background-color: c(nc, g2);
+            display: inline-block;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 2;
+          }
+          &:before{
+            content: "";
+            width: 100%;
+            height: 2px;
+            background-color: c(nc, b1);
+            display: block;
+            position: absolute;
+            top: 20px;
+            left: 0;
+            z-index: 1;
+          }
+        }
+        .block__banner{
+          margin: 75px auto 0;
+          width: 100%;
+          border-radius: 8px;
+          overflow: hidden;
+          img{
+            width: 100%;
+            height: auto;
+          }
+        }
+        .layout__Inquiry{
+          margin: 75px 0 0;
+        }
+      }
+    }
+  }
+}
+
+@include mq(m) {
+  .header{
+    width: 100%;
+    height: 105px;
+    background-color: c(nc, w1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    .inner_header{
+      margin: 0 auto;
+      width: $wl;
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      .box_nav{
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0 20px;
+        .pc_navbar_button{
+          padding: 0 25px;
+          height: 45px;
+          @include fts(ja, text);
+          line-height: 100%;
+          background-color: c(nc, w1);
+          border: 3px solid c(nc, b1);
+          border-radius: 50px;
+          box-sizing: border-box;
+          display: flex;
+          justify-content: center;
+        align-items: center;
+        }
+      }
+    }
+  }
+
+  .pc_header_menu{
+    padding: 0 0 100px;
+    width: 100%;
+    height: calc(100vh - 105px);
+    background-color: c(nc, g2);
+    box-sizing: border-box;
+    overflow-y: auto;
+    position: fixed;
+    top: 105px;
+    left: 0;
+    z-index: 9998;
+    transition: all 0.2s ease;
+    opacity: 1;
+    &.open{
+      opacity: 1;
+    }
+    &.close{
+      display: none;
+      opacity: 0;
+    }
+    .header{
+      background-color: c(nc, g2);
+    }
+    .box__nav{
+      padding: 50px 0 0;
+      box-sizing: border-box;
+      display: block;
+      .layout__nav{
+        margin: 0 auto;
+        width: $wl;
+        .block__nav{
+          margin: 0 0 60px;
+          display: flex;
+          justify-content: flex-start;
+          .block__online_challnege{
+          }
+          a{
+            padding: 0 0 0 15px;
+            width: 430px;
+            @include fts(ja, title);
+            line-height: 125%;
+            border-left: 5px solid c(yellow, m);
+            box-sizing: border-box;
+            display: block;
+            span{
+              margin: 5px 0 0;
+              @include fts(ja, minimum);
+              line-height: 100%;
+              display: block;
+            }
+          }
+        }
+        .block__online_challnege{
+          margin: 20px 0 60px;
+        }
+        .heading__online_challnege{
+          position: relative;
+          span{
+            padding: 2px 30px;
+            @include fts(ja, title);
+            background-color: c(nc, g2);
+            display: inline-block;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 2;
+          }
+          &:before{
+            content: "";
+            width: $wl;
+            height: 2px;
+            background-color: c(nc, b1);
+            display: block;
+            position: absolute;
+            top: 20px;
+            left: 0;
+            z-index: 1;
+          }
+        }
+        .block__banner{
+          margin: 0 auto 50px;
+          width: 660px;
+          border-radius: 8px;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}
+

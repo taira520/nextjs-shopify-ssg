@@ -1,0 +1,155 @@
+@import "/styles/scss/_variables";
+@import "/styles/scss/_mixin";
+@import "/styles/scss/_utilities";
+
+@import "/styles/scss/_variables";
+@import "/styles/scss/_mixin";
+@import "/styles/scss/_utilities";
+
+@include mq(s) {
+    .box_example{
+        margin: 0 auto;
+        width: 100%;
+        .heading{
+            @include fts(ja, title);
+        }
+        ul.example{
+            margin: 30px 0 0;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 50px 0;
+            li{
+                width: 48%;
+                .add_corner{
+                    position: relative;
+                    &::before,&::after{
+                        content: '';
+                        background-image: url(/focus_mark-gray.svg);
+                        background-size: contain;
+                        vertical-align: middle;
+                        width: 15px;
+                        height: 15px;
+                        display: inline-block;
+                        position: absolute;
+                        transition: all 0.2s ease;
+                    }
+                    &::before{
+                        top: 10px;
+                        left: 10px;
+                    }
+                    &::after{
+                        transform: rotate(-180deg);
+                        bottom: 10px;
+                        right: 10px;
+                    }
+                    &:hover{
+                        &::before{
+                            top: 15px;
+                            left: 15px;
+                        }
+                        &::after{
+                            bottom: 15px;
+                            right: 15px;
+                        }
+                    }
+                }
+                .visual_example{
+                    width: 100%;
+                    img{
+                        width: 100%;
+                        height: auto;
+                        border-radius: 8px;
+                    }
+
+                }
+                .heading_example{
+                    margin: 20px 0 0;
+                    @include fts(ja, bold);
+                    line-height: 100%;
+                    text-align: center;
+                }
+                .inner_example{
+                    margin: 10px 0 0;
+                    @include fts(ja, small);
+                    line-height: 150%;
+
+                }
+            }
+        }
+    }
+}
+
+@include mq(m) {
+    .box_example{
+        margin: 0 auto;
+        width: $wm;
+        .heading{
+            @include fts(ja, lead);
+        }
+        ul.example{
+            margin: 100px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 75px 20px;
+            li{
+                width: $wxxs;
+                .add_corner{
+                    position: relative;
+                    &::before,&::after{
+                        content: '';
+                        background-image: url(/focus_mark-gray.svg);
+                        background-size: contain;
+                        vertical-align: middle;
+                        width: 15px;
+                        height: 15px;
+                        display: inline-block;
+                        position: absolute;
+                        transition: all 0.2s ease;
+                    }
+                    &::before{
+                        top: 10px;
+                        left: 10px;
+                    }
+                    &::after{
+                        transform: rotate(-180deg);
+                        bottom: 10px;
+                        right: 10px;
+                        
+                    }
+                    &:hover{
+                        &::before{
+                            top: 15px;
+                            left: 15px;
+                        }
+                        &::after{
+                            bottom: 15px;
+                            right: 15px;
+                        }
+                    }
+                }
+                .visual_example{
+                    width: 100%;
+                    img{
+                        width: 100%;
+                        height: auto;
+                        border-radius: 8px;
+                    }
+
+                }
+                .heading_example{
+                    margin: 30px 0 0;
+                    @include fts(ja, title);
+                    line-height: 100%;
+
+
+                }
+                .inner_example{
+                    margin: 20px 0 0;
+                    @include fts(ja, text);
+
+                }
+            }
+        }
+    }
+}

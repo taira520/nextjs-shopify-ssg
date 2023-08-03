@@ -1,0 +1,99 @@
+@import "/styles/scss/_variables";
+@import "/styles/scss/_mixin";
+@import "/styles/scss/_utilities";
+
+
+@include mq(s) {
+    .box_go_to_onlineshop{
+        margin: 75px auto 0;
+        padding: 50px 0 0;
+        width: $mainWidth_sp;
+        border-top: 1px solid c(nc, b1);
+        box-sizing: border-box;
+        .layout_go_to_onlineshop{
+            .heading_go_to_onlineshop{
+                display: flex;
+                justify-content: space-between;
+                // align-items: flex-end;
+                flex-direction: column;
+                .inner_go_to_onlineshop{
+                    .title{
+                        h2{
+                            width: 100%;
+                            @include fts(ja, title);
+                        }
+                        p{
+                            margin: 20px 0 0;
+                            width: $baseTextWidth_sp;
+                            @include fts(ja, text);
+                        }
+                    }
+                }
+                .layout_button{
+                    margin: 30px 0 0;
+                }
+            }
+            ul.listsimages_go_to_onlineshop{
+                margin: 30px 0 0;
+                display: flex;
+                justify-content: space-between;
+                li{
+                    width: 30%;
+                    img{
+                        width: 100%;
+                        height: auto;
+                        border-radius: $baseRadius_sp;
+                    }
+                }
+            }
+        }
+      }
+}
+
+@include mq(m) {
+    .box_go_to_onlineshop{
+        margin: 100px auto 0;
+        padding: 100px 0 0;
+        width: $wm;
+        border-top: 1px solid c(nc, b1);
+        box-sizing: border-box;
+        .layout_go_to_onlineshop{
+            .heading_go_to_onlineshop{
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                .inner_go_to_onlineshop{
+                    .title{
+                        h2{
+                            width: $ws;
+                            @include fts(ja, lead);
+                        }
+                        p{
+                            margin: 50px 0 0;
+                            width: $wxxs;
+                            @include fts(ja, bold);
+                        }
+                    }
+                }
+                .layout_button{
+                    a{
+      
+                    }
+                }
+            }
+            ul.listsimages_go_to_onlineshop{
+                margin: 50px 0 0;
+                display: flex;
+                justify-content: space-between;
+                li{
+                    width: $wxxs;
+                    img{
+                        width: 100%;
+                        height: auto;
+                        border-radius: 8px;
+                    }
+                }
+            }
+        }
+      }
+}

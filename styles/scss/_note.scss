@@ -1,0 +1,652 @@
+
+@include mq(s) {
+    .body-hidacolle-note{
+        .note-header{
+            width: 100%;
+            height: 75px;
+            border-top: 1px solid c(nc,b1);
+            border-bottom: 1px solid c(nc,b1);
+            box-sizing: border-box;
+            .inner-heading{
+                margin: 0 auto;
+                width: $mainWidth_sp;
+                height: 100%;
+                display: flex;
+                // justify-content: center;
+                align-items: center;
+            }
+        }
+        .note-heading{
+            margin: 30px auto 0;
+            width: $mainWidth_sp;
+            display: flex;
+            flex-direction: column-reverse;
+            .heading-title{
+                margin: 50px 0 0;
+                padding: 50px 0;
+                width: 100%;
+                border-top: 2px solid c(nc,g1);
+                border-bottom: 2px solid c(nc,g1);
+                .heading-title-inner{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .logos{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 0 10px;
+                        .box__logomark{
+                            .logomark{
+                                img{
+                                    width: 100%;
+                                }
+                            }
+                            .line{
+                                display: none;
+                            }
+                        }
+                        .logotype{
+                            color: c(nc,b2);
+                            @include fts(ja, bold);
+                            font-family: 'Poppins';
+                            line-height: 125%;
+                            letter-spacing: 0.08em;
+                            text-align: center;
+                        }
+                    }
+                    .caption{
+                        margin: 20px 0 0;
+                        color: c(nc,b2);
+                        @include fts(ja, text);
+                        text-align: center;
+                    }
+                }
+            }
+            .heading-slider{
+                a{
+                    width: 100%;
+                    aspect-ratio: 1/1;
+                    background-size: cover;
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: flex-end;
+                    .title{
+                        width: 50%;
+                        color: c(nc,w1);
+                        @include fts(ja, lead);
+                        position: relative;
+                        bottom: 100px;
+                        left: 60px;
+                    }
+                }
+                .slick-active{
+                    z-index: 10;
+                }
+                .prev-arrow, .next-arrow {
+                    width: 65px;
+                    height: 50px;
+                    color: #B1BF61;
+                    @include fts(ja, small);
+                    background-color: #fff;
+                    border: 2px solid #CBD97B;
+                    border-radius: 100px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    z-index: 1;
+                    cursor: pointer;
+                }
+                .prev-arrow {
+                    top: calc(50% - 25px);
+                    left: -10px;
+                }
+                .next-arrow {
+                    top: calc(50% - 25px);
+                    right: -10px;
+                }
+            }
+        }
+        .note-contentents-notes{
+            margin: 50px 0 0;
+            .notes-heading{
+                margin: 0 auto;
+                width: $mainWidth_sp;
+                .title{
+                    color: c(green,m);
+                    @include fts(ja, catch);
+                    line-height: 100%;
+                    font-family: 'Poppins';
+                }
+                .line{
+                    margin: 15px 0 0;
+                    color: c(green,m);
+                    @include fts(ja, bold);
+                }
+    
+            }
+            .notes-items{
+                margin: 50px auto 0;
+                width: $mainWidth_sp;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 50px 0;
+                .item{
+                    width: 100%;
+                    .thumbnail{
+                        img{
+                            width: 100%;
+                            height: auto;
+                            border-radius: 8px;
+                        }
+                    }
+                    .title{
+                        margin: 20px 0 0;
+                        @include fts(ja, title);
+                    }
+                }
+            }
+        }
+        .note-item-heading{
+            margin: 50px auto 0;
+            width: $mainWidth_sp;
+            .item-data{
+                .item-date{
+                    @include fts(ja, small);
+                    font-family: 'Poppins';
+                }
+                h2.item-title{
+                    margin: 20px 0 0;
+                    width: 100%;
+                    @include fts(ja, lead);
+                }
+            }
+            .back{
+                display: none;
+            }
+        }
+        .note-item-contentents{
+            margin: 50px auto 0;
+            width: $mainWidth_sp;
+            .thunmnail{
+                img{
+                    width: 100%;
+                    height: auto;
+                    border-radius: 8px;
+                }
+            }
+            .thunmnail_none{
+                margin: 50px 0;
+                padding: 20px;
+                @include fts(ja, bold);
+                line-height: 200%;
+                text-align: center;
+                border: 1px solid #000000;
+                box-sizing: border-box;
+            }
+            .content{
+                margin: 50px 0 0;
+                @include fts(ja, bold);
+                font-weight: normal;
+                line-height: 200%;
+                display: flex;
+                flex-direction: column;
+                gap: 35px 0;
+                h4{
+                    @include fts(ja, title);
+                    text-align: center;
+                    text-decoration: underline;
+                }
+                .description_block{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px 0;
+                }
+                img{
+                    width: 100%;
+                    height: auto;
+                    border-radius: 8px;
+                }
+            }
+        }
+        // サムネイルが未設定の場合に表示されるブロックのスタイル
+        .note-notice-block{
+            width: 100%;
+            height: 35px;
+            color: c(nc, w1);
+            @include fts(ja, minimum);
+            line-height: 100%;
+            background-color: c(red, m);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .note-item-contentents{
+            .category__handcrafts-of-hida{
+                margin: 30px 0 0;
+                width: 100%;
+                .heading{
+                    padding: 0 30px;
+                    width: 100%;
+                    height: 70px;
+                    @include fts(ja, bold);
+                    background-color: #E1E1E1;
+                    border-radius: 8px 8px 0 0;
+                    box-sizing: border-box;
+                    display: flex;
+                    align-items: center;
+                }
+                .body{
+                    padding: 25px 30px;
+                    width: 100%;
+                    @include fts(ja, text);
+                    border: 2px solid #E1E1E1;
+                    border-top: 0;
+                    border-radius: 0 0 8px 8px;
+                    box-sizing: border-box;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px 0;
+                }
+            }
+        }
+        .block__person_introduction{
+            margin: 50px auto 0;
+            padding: 50px 30px;
+            width: $mainWidth_sp;
+            border: 3px solid #2d2d2d;
+            border-radius: 8px;
+            box-sizing: border-box;
+            .heading{
+                text-align: center;
+                p{
+                    @include fts(ja, title);
+                    font-weight: bold;
+                    letter-spacing: 0.15rem;
+                }
+                span{
+                    font-family: 'Poppins', sans-serif;
+                    @include fts(ja, small);
+                }
+            }
+            .contents{
+                margin: 50px 0 0;
+                .image{
+                    width: 100%;
+                    img{
+                        width: 100%;
+                        height: auto;
+                        border-radius: 8px;
+                    }
+                }
+                .introduction{
+                    margin: 50px 0 0;
+                    width: 100%;
+                    .name{
+                        @include fts(ja, bold);
+                        span{
+                            @include fts(ja, text);
+                        }
+                    }
+                    .description_box{
+                        margin: 30px 0 0;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 30px 0;
+                        p{
+                            @include fts(ja, bold);
+                            font-weight: normal;
+                            line-height: 200%;
+                        }
+                    }
+                    .link_box{
+                        margin: 30px 0 0;
+                        span.heading{
+                            @include fts(ja, text);
+                        }
+                        ul{
+                            li{
+                                a{
+                                    @include fts(ja, text);
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include mq(m) {
+    .body-hidacolle-note{
+        .note-header{
+            width: 100%;
+            height: 75px;
+            border-top: 1px solid c(nc,b1);
+            border-bottom: 1px solid c(nc,b1);
+            .inner-heading{
+                margin: 0 auto;
+                width: 1100px;
+                height: 100%;
+                display: flex;
+                // justify-content: center;
+                align-items: center;
+            }
+        }
+        .note-heading{
+            display: flex;
+            .heading-title{
+                width: 50%;
+                aspect-ratio: 1/1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .heading-title-inner{
+                    width: 320px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .logos{
+                        .box__logomark{
+                            text-align: center;
+                            .logomark{
+                                img{
+
+                                }
+                            }
+                            .line{
+                                margin: 10px 0 0;
+                                color: c(nc,b2);
+                                @include fts(ja, bold);
+                            }
+                        }
+                        .logotype{
+                            margin: 40px 0 0;
+                            color: c(nc,b2);
+                            @include fts(ja, lead);
+                            font-family: 'Poppins';
+                            line-height: 125%;
+                            letter-spacing: 0.08em;
+                            text-align: center;
+                        }
+                    }
+                    .caption{
+                        margin: 40px 0 0;
+                        color: c(nc,b2);
+                        @include fts(ja, text);
+                        text-align: center;
+                    }
+                }
+            }
+            .heading-slider{
+                width: 50%;
+                a{
+                    width: 100%;
+                    aspect-ratio: 1/1;
+                    background-size: cover;
+                    border-radius: 0 0 0 30px;
+                    display: flex;
+                    align-items: flex-end;
+                    .title{
+                        width: 50%;
+                        color: c(nc,w1);
+                        @include fts(ja, lead);
+                        position: relative;
+                        bottom: 100px;
+                        left: 60px;
+                    }
+                }
+                .slick-active{
+                    z-index: 10;
+                }
+                .prev-arrow, .next-arrow {
+                    width: 80px;
+                    height: 50px;
+                    color: #B1BF61;
+                    @include fts(ja, small);
+                    background-color: #fff;
+                    border: 2px solid #CBD97B;
+                    border-radius: 100px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    z-index: 1;
+                    cursor: pointer;
+                }
+                .prev-arrow {
+                    top: calc(50% - 25px);
+                    left: 60px;
+                }
+                .next-arrow {
+                    top: calc(50% - 25px);
+                    right: 60px;
+                }
+            }
+        }
+        .note-contentents-notes{
+            margin: 100px 0 0;
+            .notes-heading{
+                margin: 0 auto;
+                width: 1100px;
+                .title{
+                    color: c(green,m);
+                    @include fts(ja, catch);
+                    line-height: 100%;
+                    font-family: 'Poppins';
+                }
+                .line{
+                    margin: 25px 0 0;
+                    color: c(green,m);
+                    @include fts(ja, bold);
+                }
+    
+            }
+            .notes-items{
+                margin: 100px auto 0;
+                width: 1000px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 75px 20px;
+                .item{
+                    width: 320px;
+                    .thumbnail{
+                        img{
+                            width: 100%;
+                            height: auto;
+                            border-radius: 8px;
+                        }
+                    }
+                    .title{
+                        margin: 20px 0 0;
+                        @include fts(ja, title);
+                    }
+                }
+            }
+        }
+
+        .note-item-heading{
+            margin: 50px auto 0;
+            width: 1000px;
+            display: flex;
+            justify-content: space-between;
+            .item-data{
+                .item-date{
+                    @include fts(ja, small);
+                    font-family: 'Poppins';
+                }
+                h2.item-title{
+                    margin: 20px 0 0;
+                    width: 490px;
+                    @include fts(ja, lead);
+                    position: relative;
+                    left: -7px;
+                }
+            }
+            .back{
+                @include fts(ja, small);
+                text-decoration: underline;
+            }
+        }
+        .note-item-contentents{
+            margin: 100px auto 0;
+            width: 660px;
+            .thunmnail{
+                img{
+                    width: 100%;
+                    height: auto;
+                    border-radius: 8px;
+                }
+            }
+            .thunmnail_none{
+                margin: 50px 0;
+                padding: 20px;
+                @include fts(ja, bold);
+                line-height: 200%;
+                text-align: center;
+                border: 1px solid #000000;
+                box-sizing: border-box;
+            }
+            .content{
+                margin: 75px 0 0;
+                @include fts(ja, bold);
+                font-weight: normal;
+                line-height: 200%;
+                display: flex;
+                flex-direction: column;
+                gap: 75px 0;
+                h4{
+                    @include fts(ja, title);
+                    text-align: center;
+                    text-decoration: underline;
+                }
+                .description_block{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px 0;
+                }
+                img{
+                    width: 100%;
+                    height: auto;
+                    border-radius: 8px;
+                }
+            }
+        }
+    
+        .note-notice-block{
+            width: 100%;
+            height: 35px;
+            color: c(nc, w1);
+            @include fts(ja, minimum);
+            line-height: 100%;
+            background-color: c(red, m);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .note-item-contentents{
+            .category__handcrafts-of-hida{
+                margin: 50px 0 0;
+                width: 100%;
+                .heading{
+                    padding: 0 50px;
+                    width: 100%;
+                    height: 70px;
+                    @include fts(ja, bold);
+                    background-color: #E1E1E1;
+                    border-radius: 8px 8px 0 0;
+                    box-sizing: border-box;
+                    display: flex;
+                    align-items: center;
+                }
+                .body{
+                    padding: 35px 50px;
+                    width: 100%;
+                    @include fts(ja, text);
+                    border: 2px solid #E1E1E1;
+                    border-top: 0;
+                    border-radius: 0 0 8px 8px;
+                    box-sizing: border-box;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px 0;
+                }
+            }
+        }
+    
+        .block__person_introduction{
+            margin: 150px auto 0;
+            padding: 90px 90px;
+            width: 1180px;
+            border: 3px solid #2d2d2d;
+            border-radius: 8px;
+            box-sizing: border-box;
+            .heading{
+                text-align: right;
+                p{
+                    @include fts(ja, title);
+                    font-weight: bold;
+                    letter-spacing: 0.15rem;
+                }
+                span{
+                    font-family: 'Poppins', sans-serif;
+                    @include fts(ja, small);
+                    position: relative;
+                    right: 2px;
+                }
+            }
+            .contents{
+                margin: 90px 0 0;
+                display: flex;
+                justify-content: space-between;
+                .image{
+                    width: 320px;
+                    img{
+                        width: 100%;
+                        height: auto;
+                        border-radius: 8px;
+                    }
+                }
+                .introduction{
+                    width: 600px;
+                    .name{
+                        @include fts(ja, title);
+                        span{
+                            @include fts(ja, text);
+                        }
+                    }
+                    .description_box{
+                        margin: 30px 0 0;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 30px 0;
+                        p{
+                            @include fts(ja, bold);
+                            font-weight: normal;
+                            line-height: 200%;
+                        }
+                    }
+                    .link_box{
+                        margin: 30px 0 0;
+                        span.heading{
+                            @include fts(ja, text);
+                        }
+                        ul{
+                            li{
+                                a{
+                                    @include fts(ja, text);
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

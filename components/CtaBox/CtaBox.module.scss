@@ -1,0 +1,112 @@
+@import "/styles/scss/_variables";
+@import "/styles/scss/_mixin";
+@import "/styles/scss/_utilities";
+
+@include mq(s) {
+    .box_cta{
+        margin: 0 auto;
+        padding: 40px;
+        width: $mainWidth_sp;
+        border: 3px solid c(nc, b1);
+        border-radius: 8px;
+        box-sizing: border-box;
+        position: relative;
+        &::before{
+            content: url(/focus_mark-black.svg);
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            transform:rotate(0);
+        }
+        &::after{
+            content: url(/focus_mark-black.svg);
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            transform:rotate(180deg);
+        }
+        .box_cta_layout{
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            .inner_layout{
+                .heading_innner_layout{
+                    @include fts(ja, title);
+                }
+                .caption_innner_layout{
+                    margin: 20px 0 0;
+                    @include fts(ja, text);
+                    line-height: 150%;
+                }
+            }
+            .button_layout{
+                margin: 30px 0 0;
+                width: 100%;
+                height: 50px;
+                color: c(nc,w1);
+                @include fts(ja, text);
+                background-color: c(yellow, m);
+                border-radius: 3px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}
+
+@include mq(m) {
+    .box_cta{
+        margin: 0 auto;
+        padding: 70px 0;
+        width: $wl;
+        border: 3px solid c(nc, b1);
+        border-radius: 8px;
+        box-sizing: border-box;
+        position: relative;
+        &::before{
+            content: url(/focus_mark-black.svg);
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            transform:rotate(0);
+        }
+        &::after{
+            content: url(/focus_mark-black.svg);
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            transform:rotate(180deg);
+        }
+        .box_cta_layout{
+            margin: 0 auto;
+            width: $wm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .inner_layout{
+                .heading_innner_layout{
+                    @include fts(ja, lead);
+                }
+                .caption_innner_layout{
+                    margin: 20px 0 0;
+                    @include fts(ja, text);
+                }
+            }
+            .button_layout{
+                width: $wxxs;
+                height: 50px;
+                color: c(nc,w1);
+                @include fts(ja, bold);
+                background-color: c(yellow, m);
+                border-radius: 3px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}

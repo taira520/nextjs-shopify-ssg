@@ -1,0 +1,205 @@
+@import "/styles/scss/_variables";
+@import "/styles/scss/_mixin";
+@import "/styles/scss/_utilities";
+
+
+@include mq(s) {
+  .box__inquiry{
+    .box__layout{
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      .box__layout_heading{
+        .box__heading{
+          .small{
+            @include fts(en, text);
+            text-align: center;
+          }
+          h2{
+            margin: 10px 0 0;
+            @include fts(ja, title);
+            text-align: center;
+            // text-decoration: underline;
+          }
+          .caption{
+            margin: 20px auto 0;
+            width: $baseTextWidth_sp;
+            @include fts(ja, text);
+          }
+        }
+      }
+      .box__layout_contents{
+        margin: 30px 0 0;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 20px 0;
+        .to_mailform{
+          padding: 25px 30px;
+          width: 100%;
+          background-color: c(yellow, m);
+          border-radius: 8px;
+          box-sizing: border-box;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          .heading__to_mailform{
+            color: c(nc, w1);
+            h3{
+              @include fts(ja, title);
+              text-align: center;
+            }
+            p{
+              margin: 15px 0 0;
+              @include fts(ja, text);
+              line-height: 150%;
+              text-align: center;
+            }
+          }
+          .inner__to_mailform{
+            margin: 30px 0 0;
+          }
+        }
+        .to_telephone{
+          margin: 20px 0 0;
+          padding: 25px 30px;
+          width: 100%;
+          background-color: c(yellow, u1);
+          border-radius: 8px;
+          box-sizing: border-box;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          .heading__to_telephone{
+            color: c(nc, w1);
+            h3{
+              @include fts(ja, title);
+              text-align: center;
+            }
+            p{
+              margin: 15px 0 0;
+              @include fts(ja, text);
+              line-height: 150%;
+              text-align: center;
+            }
+          }
+          .inner__to_telephone{
+            margin: 20px 0 0;
+            color: c(nc, w1);
+            p{
+              @include fts(ja, text);
+              text-align: center;
+            }
+            a{
+              margin: 0;
+              @include fts(ja, lead);
+              line-height: 100%;
+              text-align: center;
+              letter-spacing: 1px;
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include mq(m) {
+  .box__inquiry{
+    .box__layout{
+      margin: 0 auto;
+      width: $wl;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .box__layout_heading{
+        .box__heading{
+          .small{
+            @include fts(en, text);
+          }
+          h2{
+            margin: 10px 0 0;
+            @include fts(ja, lead);
+          }
+          .caption{
+            margin: 30px 0 0;
+            @include fts(ja, text);
+          }
+        }
+      }
+      .box__layout_contents{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 20px 0;
+        .to_mailform{
+          padding: 0 50px;
+          width: 750px;
+          height: 140px;
+          background-color: c(yellow, m);
+          border-radius: 8px;
+          box-sizing: border-box;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .heading__to_mailform{
+            color: c(nc, w1);
+            h3{
+              @include fts(ja, title);
+            }
+            p{
+              @include fts(ja, text);
+              line-height: 175%;
+            }
+          }
+          .inner__to_mailform{
+            width: 290px;
+          }
+        }
+        .to_telephone{
+          margin: 20px 0 0;
+          padding: 0 50px;
+          width: 750px;
+          height: 140px;
+          background-color: c(yellow, u1);
+          border-radius: 8px;
+          box-sizing: border-box;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .heading__to_telephone{
+            color: c(nc, w1);
+            h3{
+              @include fts(ja, title);
+            }
+            p{
+              @include fts(ja, text);
+              line-height: 175%;
+            }
+          }
+          .inner__to_telephone{
+            width: 290px;
+            color: c(nc, w1);
+            p{
+              @include fts(ja, text);
+              text-align: center;
+            }
+            a{
+              margin: 5px;
+              @include fts(ja, lead);
+              line-height: 100%;
+              text-align: center;
+              letter-spacing: 1px;
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

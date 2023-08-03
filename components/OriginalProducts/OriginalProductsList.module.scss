@@ -1,0 +1,120 @@
+@import "/styles/scss/_variables";
+@import "/styles/scss/_mixin";
+@import "/styles/scss/_utilities";
+
+
+@include mq(s) {
+    .lists__products{
+        margin:  0;
+        width: 100%;
+        .block__product{
+            width: 100%;
+            position: relative;
+            figure{
+                .visual{
+                    display: inline-block;
+                    img{
+                        width: 100%;
+                        height: auto;
+                        border-radius: $baseRadius_sp;
+                    }
+                }
+                figcaption{
+                    .hidacolle_number{
+                        text-align: center;
+                        border-bottom: 3px solid #CBD97B;
+                        position: absolute;
+                        top: -30px;
+                        right: 0;
+                        .line{
+                            color: #CBD97B;
+                            @include fts(ja, minimum);
+                            letter-spacing: 0;
+                            display: block;
+                        }
+                        .number{
+                            color: #CBD97B;
+                            @include fts(ja, "28");
+                            line-height: 150%;
+                            letter-spacing: 0;
+                            display: block;
+                        }
+                    }
+                    h3{
+                        margin: 20px 0 0;
+                        @include fts(ja, bold);
+                        text-align: center;
+                    }
+                    .caption{
+                        margin: 20px auto 0;
+                        width: $baseTextWidth_sp;
+                        @include fts(ja, text);
+
+                    }
+                    .layout__button{
+                        margin: 20px 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include mq(m) {
+    .lists__products{
+        margin:  0;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 120px 20px;
+        .block__product{
+            width: $wxxs;
+            position: relative;
+            figure{
+                .visual{
+                    display: inline-block;
+                    img{
+                        width: 100%;
+                        height: auto;
+                        border-radius: 8px;
+                    }
+                }
+                figcaption{
+                    .hidacolle_number{
+                        text-align: center;
+                        border-bottom: 4px solid #CBD97B;
+                        position: absolute;
+                        top: -40px;
+                        right: 0;
+                        .line{
+                            color: #CBD97B;
+                            @include fts(ja, minimum);
+                            letter-spacing: 0;
+                            display: block;
+                        }
+                        .number{
+                            color: #CBD97B;
+                            @include fts(ja, lead);
+                            letter-spacing: 0;
+                            display: block;
+                        }
+                    }
+                    h3{
+                        margin: 30px 0 0;
+                        @include fts(ja, title);
+                    }
+                    .caption{
+                        margin: 20px 0 0;
+                        height: 160px;
+                        @include fts(ja, text);
+                    }
+                    .layout__button{
+                        margin: 30px 0 0;
+                    }
+                }
+            }
+            
+        }
+    }
+}
+

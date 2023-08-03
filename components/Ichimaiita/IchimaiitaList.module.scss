@@ -1,0 +1,84 @@
+@import "/styles/scss/_variables";
+@import "/styles/scss/_mixin";
+@import "/styles/scss/_utilities";
+
+
+@include mq(s) {
+    .box_items{
+        margin: 0 auto;
+        width: $mainWidth_sp;
+        .heading{
+            margin: 0 auto;
+            width: 100%;
+            @include fts(ja, title);
+        }
+        ul.items{
+            margin: 30px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 35px 0;
+            li{
+                width: 48%;
+                .visual_item{
+                    img{
+                        width: 100%;
+                        height: auto;
+                        border-radius: $baseRadius_sp;
+                    }
+                }
+                .title_item{
+                    margin: 20px 0 0;
+                    @include fts(ja, text);
+                    line-height: 100%;
+                }
+                .inner_item{
+                    margin: 15px 0 0;
+                    @include fts(ja, minimum);
+                    line-height: 125%;
+                    table{
+                        tbody{
+                            tr{
+                                margin: 0 0 5px;
+                                display: block;
+                                vertical-align: top;
+                                th,td{
+                                    display: block;
+                                }
+                                th{
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include mq(m) {
+    .visual_item{
+        img{
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    }
+    .title_item{
+        margin: 30px 0 0;
+        @include fts(ja, bold);
+    }
+    .inner_item{
+        margin: 15px 0 0;
+        @include fts(ja, text);
+        table{
+            tbody{
+                tr{
+                    th{
+                        width: 90px;
+                    }
+                }
+            }
+        }
+    }
+}

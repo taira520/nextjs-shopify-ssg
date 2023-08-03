@@ -1,0 +1,82 @@
+name: Deploy via Github Actions to Production
+on:
+  repository_dispatch:
+    # WordpressからStagingへアップ（type名変えて分かりやすくする必要ある。）
+    type: after_saving_wordpress
+  push:
+    # branchesへ「main」と[develop]の追加
+    branches:
+      - main
+      - staging
+    paths-ignore:
+      # - '.github/workflows/**'
+
+# https://rcmdnk.com/blog/2023/01/24/computer-github/
+
+jobs:
+  wordpress-deploy:
+    if: github.event.client_payload
+    name: wordpress-deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.client_payload.ref }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.8.0
+          cache: npm
+      - name: Install NPM packages
+        run: npm ci
+      - name: Create .env.local file
+        run: |
+            echo "WP_AUTH_SECRET=${{ secrets.WP_AUTH_SECRET }}" >>  .env
+            echo "WP_API_URL=${{ secrets.WP_API_URL }}" >>  .env
+            echo "WP_GRAPHQL_URL=${{ secrets.WP_GRAPHQL_URL }}" >>  .env
+      - name: Export Next.js App
+        run: npm run build
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{github.event.client_payload.ref == 'main' && secrets.FTP_SERVER_PRODUCTION || github.event.client_payload.ref == 'staging' && secrets.FTP_SERVER}}
+          username: ${{github.event.client_payload.ref == 'main' && secrets.FTP_USERNAME_PRODUCTION || github.event.client_payload.ref == 'staging' && secrets.FTP_USERNAME}}
+          password: ${{github.event.client_payload.ref == 'main' && secrets.FTP_PASSWORD_PRODUCTION || github.event.client_payload.ref == 'staging' && secrets.FTP_PASSWORD}}
+          server-dir: ${{github.event.client_payload.ref == 'main' && secrets.FTP_SERVER_DIR_PRODUCTION || github.event.client_payload.ref == 'staging' && secrets.FTP_SERVER_DIR}}
+          local-dir: ./out/
+          protocol: ftps
+          exclude: "[**/.**/**, .gitignore,  **/.git/**, **/node_modules/**, **/vendor/**, .editorconfig, README.md, .phpcs.xml.dist, **.json, **.lock, postcss.config.js, **/src/**]"
+  push-deploy:
+    if: (!github.event.client_payload)
+    name: push-deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.8.0
+          cache: npm
+      - name: Install NPM packages
+        run: npm ci
+      - name: Create .env.local file
+        run: |
+            echo "WP_AUTH_SECRET=${{ secrets.WP_AUTH_SECRET }}" >>  .env
+            echo "WP_API_URL=${{ secrets.WP_API_URL }}" >>  .env
+            echo "WP_GRAPHQL_URL=${{ secrets.WP_GRAPHQL_URL }}" >>  .env
+      - name: Export Next.js App
+        run: npm run build
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{github.ref_name == 'main' && secrets.FTP_SERVER_PRODUCTION || github.ref_name == 'staging' && secrets.FTP_SERVER}}
+          username: ${{github.ref_name == 'main' && secrets.FTP_USERNAME_PRODUCTION || github.ref_name == 'staging' && secrets.FTP_USERNAME}}
+          password: ${{github.ref_name == 'main' && secrets.FTP_PASSWORD_PRODUCTION || github.ref_name == 'staging' && secrets.FTP_PASSWORD}}
+          server-dir: ${{github.ref_name == 'main' && secrets.FTP_SERVER_DIR_PRODUCTION || github.ref_name == 'staging' && secrets.FTP_SERVER_DIR}}
+          local-dir: ./out/
+          protocol: ftps
+          exclude: "[**/.**/**, .gitignore,  **/.git/**, **/node_modules/**, **/vendor/**, .editorconfig, README.md, .phpcs.xml.dist, **.json, **.lock, postcss.config.js, **/src/**]"

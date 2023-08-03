@@ -1,0 +1,32 @@
+{
+  "postLists": [
+        {
+            "id": "000000000100",
+            "hidacolle_number": "001",
+            "item_name": "コンソールデスク W950",
+            "caption": "<p>飾り棚として用いられる奥行きの浅いミニテーブル。その発祥の地ヨーロッパでは、多くの人々に使われていたといいます。このコンソールをヒダコレがリデザイン。様々な用途に使えるようにしました。</p>",
+            "ec_url": "https://hida-collection.shop/view/item/000000000100"
+        },
+        {
+            "id": "000000000103",
+            "hidacolle_number": "010",
+            "item_name": "ハンガーラック X型",
+            "caption": "<p>衣服をかけられるだけでなく、バッグや小物も置けるスノコも備えています。ただいまと行ってきますの間に、服飾雑貨達もほっと一息。</p>",
+            "ec_url": "https://hida-collection.shop/view/item/000000000103"
+        },
+        {
+            "id": "000000000101",
+            "hidacolle_number": "007",
+            "item_name": "アイアンシェルフ B",
+            "caption": "<p>シェルフと言っても、そのバリエーションは様々。ヒダコレが提案するシェルフは、使うシーンを選ばない、何役もこなせる器用なシェルフです。</p>",
+            "ec_url": "https://hida-collection.shop/view/item/000000000101"
+        },
+        {
+            "id": "000000000148",
+            "hidacolle_number": "008",
+            "item_name": "桐箱",
+            "caption": "<p>ヒダコレの桐箱は、コンパクトなのに大容量。たくさん入るだけじゃない、ガバッと入れて、スッと取り出せるスマートな収納ボックスです。</p>",
+            "ec_url": "https://hida-collection.shop/view/item/000000000148"
+        }
+  ]
+}

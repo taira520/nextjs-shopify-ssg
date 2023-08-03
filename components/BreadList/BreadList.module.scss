@@ -1,0 +1,49 @@
+@import "/styles/scss/_variables";
+@import "/styles/scss/_mixin";
+@import "/styles/scss/_utilities";
+
+
+@include mq(s) {
+    .box__breadlist{
+        margin: 25px auto 0;
+        width: $mainWidth_sp;
+        display: flex;
+        flex-direction: column;
+        gap: 0 10px;
+        @include fts(ja, minimum);
+        line-height: 200%;
+        a{
+            text-decoration: underline;
+        }
+        .active_floor{
+            display: flex;
+            gap: 0 10px;
+            align-items: center;
+            &:after{
+                content: ">";
+            }
+        }
+    }
+}
+
+@include mq(m) {
+    .box__breadlist{
+        margin: 50px auto 0;
+        width: $wl;
+        display: flex;
+        gap: 0 10px;
+        @include fts(ja, small);
+        a{
+            text-decoration: underline;
+        }
+        .active_floor{
+            display: flex;
+            gap: 0 10px;
+            align-items: center;
+            &:after{
+                content: ">";
+            }
+        }
+    }
+}
+
