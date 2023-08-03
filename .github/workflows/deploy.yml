@@ -36,10 +36,10 @@ jobs:
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          server: ${{github.event.client_payload.ref == 'master' && secrets.FTP_SERVER_PRODUCTION || github.event.client_payload.ref == 'staging' && secrets.FTP_SERVER}}
-          username: ${{github.event.client_payload.ref == 'master' && secrets.FTP_USERNAME_PRODUCTION || github.event.client_payload.ref == 'staging' && secrets.FTP_USERNAME}}
-          password: ${{github.event.client_payload.ref == 'master' && secrets.FTP_PASSWORD_PRODUCTION || github.event.client_payload.ref == 'staging' && secrets.FTP_PASSWORD}}
-          server-dir: ${{github.event.client_payload.ref == 'master' && secrets.FTP_SERVER_DIR_PRODUCTION || github.event.client_payload.ref == 'staging' && secrets.FTP_SERVER_DIR}}
+          server: ${{github.ref_name == 'master' && secrets.FTP_SERVER_PRODUCTION || github.ref_name == 'staging' && secrets.FTP_SERVER}}
+          username: ${{github.ref_name == 'master' && secrets.FTP_USERNAME_PRODUCTION || github.ref_name == 'staging' && secrets.FTP_USERNAME}}
+          password: ${{github.ref_name == 'master' && secrets.FTP_PASSWORD_PRODUCTION || github.ref_name == 'staging' && secrets.FTP_PASSWORD}}
+          server-dir: ${{github.ref_name == 'master' && secrets.FTP_SERVER_DIR_PRODUCTION || github.ref_name == 'staging' && secrets.FTP_SERVER_DIR}}
           local-dir: ./out/
           protocol: ftps
           exclude: "[**/.**/**, .gitignore,  **/.git/**, **/node_modules/**, **/vendor/**, .editorconfig, README.md, .phpcs.xml.dist, **.json, **.lock, postcss.config.js, **/src/**]"
