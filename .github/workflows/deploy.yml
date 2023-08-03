@@ -1,10 +1,9 @@
 name: Deploy via Github Actions to Production
 on:
   repository_dispatch:
-    # WordpressからStagingへアップ（type名変えて分かりやすくする必要ある。）
-    type: after_saving_wordpress
+    type: shopify_update
   push:
-    # branchesへ「main」と[develop]の追加
+    # branchesへ[develop]の追加
     branches:
       - main
       - staging
@@ -33,9 +32,8 @@ jobs:
         run: npm ci
       - name: Create .env.local file
         run: |
-            echo "WP_AUTH_SECRET=${{ secrets.WP_AUTH_SECRET }}" >>  .env
-            echo "WP_API_URL=${{ secrets.WP_API_URL }}" >>  .env
-            echo "WP_GRAPHQL_URL=${{ secrets.WP_GRAPHQL_URL }}" >>  .env
+            echo "SHOPIFY_ACCESS_TOKEN=${{ secrets.SHOPIFY_ACCESS_TOKEN }}" >>  .env
+            echo "SHOPIFY_GRAPHQL_URL=${{ secrets.SHOPIFY_GRAPHQL_URL }}" >>  .env
       - name: Export Next.js App
         run: npm run build
       - name: FTP Deploy
